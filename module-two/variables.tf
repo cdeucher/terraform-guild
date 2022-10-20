@@ -1,13 +1,22 @@
 variable "app_name" {
-    type = "string"
+    description = "The name of the application"
+    type = string
 }
 variable "region" {
-    type = "string"
+    description = "AWS region"
+    type = string
     default = "us-east-1"
 }
 variable "bucket_name" {
-    type = "string"
+    description = "Name of the S3 bucket"
+    type = string
 }
 variable "s3_origin_id" {
-    type = "string"
+    description = "The origin ID for the S3 bucket"
+    type = string
+}
+variable "additional_tags" {
+    description = "Additional resource tags"
+    default     = {}
+    type        = map(string)
 }

@@ -15,3 +15,11 @@ terraform {
 provider "aws" {
   region      = var.region
 }
+
+# terraform {
+#   backend "s3" {
+#     bucket = "devops-corp-terraform-state"
+#     key    = "corp/devops"
+#     region = "us-east-1"
+#   }
+# }

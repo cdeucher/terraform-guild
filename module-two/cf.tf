@@ -4,7 +4,7 @@ resource "aws_cloudfront_origin_access_identity" "access_identity" {
 
 resource "aws_cloudfront_distribution" "distribution" {
   origin {
-    domain_name = aws_s3_bucket.bucket.bucket_regional_domain_name
+    domain_name = aws_s3_bucket.devops_app_bucket.bucket_regional_domain_name
     origin_id   = var.s3_origin_id
     origin_path = "/current"
     s3_origin_config {
@@ -15,9 +15,6 @@ resource "aws_cloudfront_distribution" "distribution" {
   is_ipv6_enabled     = false
   comment             = "Some comment"
   default_root_object = "index.html"
-
-  # aliases = [aws_s3_bucket.bucket.bucket_regional_domain_name]
-
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
@@ -60,8 +57,9 @@ resource "aws_cloudfront_distribution" "distribution" {
   viewer_certificate {
     cloudfront_default_certificate = true
   }
-  tags = {
-    Name = "CF-${var.bucket_name}"
-    Application = var.app_name
-  }
+  tags = merge(
+    local.common_tags, {
+      Name = "CF-${var.bucket_name}"
+    },
+  )
 }
