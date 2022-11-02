@@ -6,6 +6,7 @@ Lets create a workspace for dev.
 terraform workspace new dev
 terraform workspace select dev
 terraform init
+terraform get
 terraform plan --var-file=environments/dev.tfvars | grep -A 10 "Plan:"
 ```
 
@@ -13,7 +14,7 @@ terraform plan --var-file=environments/dev.tfvars | grep -A 10 "Plan:"
 
 A Terraform module is a set of Terraform configuration files in a single directory.
 
-[State](https://developer.hashicorp.com/terraform/tutorials/modules/module)
+[Specification](https://developer.hashicorp.com/terraform/tutorials/modules/module)
 
 ### What are modules for?
 - Organize configuration.

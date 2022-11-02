@@ -9,8 +9,8 @@
 - [Module 1](module-one/README.md): Workspace, Resource, Input Variables, Output Values, Local Values, Tags
 - [Module 2](module-two/README.md): State: Taint, Destroy, Import, Move, Exclude, Show, List
 - [Module 3](module-three/README.md): Modules
-- Module : Explicit dependencies, Implicit dependencies, Query data, Sensitive data.
-- Module : count, for_each, splat expression, dynamic blocks, locals.
+- [Module 4](module-four/README.md): Explicit dependencies, Implicit dependencies, Count, For_each, Splat expression
+- Module : Dynamic blocks, Query data, Sensitive data.
 - Module : custom condition checks, built-in functions, lifecycle.
 - Module : import, refresh, taint, fmt, validate, state, provisioners
 

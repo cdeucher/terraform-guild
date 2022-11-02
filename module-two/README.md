@@ -11,7 +11,7 @@ terraform plan --var-file=environments/dev.tfvars | grep -A 10 "Plan:"
 ---
 ### State
 
-[State](https://www.terraform.io/language/state)
+[Specification](https://www.terraform.io/language/state)
 
 Terraform must store state about your managed infrastructure and configuration. 
 This state is used by Terraform to map resources to your configuration.
@@ -71,7 +71,7 @@ terraform untaint ws_s3_bucket.b2b_experience_app_s3
 
 ### Remote State
 
-[Remote State](https://www.terraform.io/language/state/remote-state-data)
+[Specification](https://www.terraform.io/language/state/remote-state-data)
 ```HCL
 terraform {
   backend "s3" {
