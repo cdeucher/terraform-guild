@@ -6,13 +6,14 @@
 
 ### Summary
 
-- [Module 1](module-one/README.md): Workspace, Resource, Input Variables, Output Values, Local Values, Tags
-- [Module 2](module-two/README.md): State: Taint, Destroy, Import, Move, Exclude, Show, List
-- [Module 3](module-three/README.md): Modules
-- [Module 4](module-four/README.md): Explicit dependencies, Implicit dependencies, Count, For_each, Splat expression
-- Module : Dynamic blocks, Query data, Sensitive data.
+- [Module 1](module1/README.md): Workspace, Resource, Input Variables, Output Values, Local Values, Tags
+- [Module 2](module2/README.md): State: Taint, Destroy, Import, Move, Exclude, Show, List
+- [Module 3](module3/README.md): Modules
+- [Module 4](module4/README.md): Explicit dependencies, Implicit dependencies, Count, For_each, Splat expression
+- [Module 5](module5/README.md): Dynamic blocks, Query data sources, Sensitive data, Remote State.
 - Module : custom condition checks, built-in functions, lifecycle.
-- Module : import, refresh, taint, fmt, validate, state, provisioners
+- Module : localstack (Aspira)
+- Module : GitOps
 
 ### References
 - https://www.terraform.io/language/expressions/custom-conditions
