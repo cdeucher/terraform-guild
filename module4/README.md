@@ -62,6 +62,8 @@ It works best when resources will be identical, or nearly so.
 
 [Specification](https://developer.hashicorp.com/terraform/language/expressions/for)
 
+`[for <ITEM> in <LIST> : <OUTPUT>]
+
 ```HCL
 resource "aws_instance" "server" {
   count = 4 # create four similar EC2 instances
