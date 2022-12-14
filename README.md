@@ -11,9 +11,8 @@
 - [Module 3](module3/README.md): Modules
 - [Module 4](module4/README.md): Explicit dependencies, Implicit dependencies, Count, For_each, Splat expression
 - [Module 5](module5/README.md): Dynamic blocks, Query data sources, Sensitive data, Remote State.
-- Module : custom condition checks, built-in functions, lifecycle.
-- Module : localstack (Aspira)
-- Module : GitOps
+- Module : Localstack (Aspira)
+- Module : Lifecycle, Condition checks, GitOps
 
 ### References
 - https://www.terraform.io/language/expressions/custom-conditions
