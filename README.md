@@ -11,7 +11,7 @@
 - [Module 3](module3/README.md): Modules
 - [Module 4](module4/README.md): Explicit dependencies, Implicit dependencies, Count, For_each, Splat expression
 - [Module 5](module5/README.md): Dynamic blocks, Query data sources, Sensitive data, Remote State.
-- Module : Localstack (Aspira)
+- [Module 6](module6/README.md): Terraform AWS LocalStack
 - [Module 7](module7/README.md): Lifecycle, Condition checks, GitOps
 
 ### References
