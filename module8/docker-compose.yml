@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  atlantis:
+    container_name: atlantis
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+      - atlantis
+      - server
+      - --repo-config=/home/atlantis/repos.yaml
+    volumes:
+      - ./atlantis_cache:/home/atlantis/.atlantis
+      - ./repos.yaml:/home/atlantis/repos.yaml
+    ports:
+      - "4141:4141"
+    env_file:
+      - ./atlantis.env

@@ -1,0 +1,21 @@
+---
+version: 3
+projects:
+  - name: Hello
+    workflow: hello
+    dir: .
+    workspace: dev
+    autoplan:
+      when_modified: ["*"]
+  - name: Develop
+    workflow: development
+    dir: .
+    workspace: dev
+    autoplan:
+      enabled: false
+  - name: Staging
+    workflow: staging
+    dir: .
+    workspace: stg
+    autoplan:
+      enabled: false

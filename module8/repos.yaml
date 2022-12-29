@@ -1,0 +1,59 @@
+---
+repos:
+- id: /.*/
+  branch: /.*/
+  allowed_overrides: [workflow]
+  allow_custom_workflows: true
+  apply_requirements: [ approved, mergeable ]
+  pre_workflow_hooks:
+    - run: echo 'uolllll'
+
+workflows:
+  hello:
+    plan:
+      steps:
+        - init
+        - plan
+        - show
+  development:
+    plan:
+      steps:
+        - run: rm -rf .terraform
+        - run: git config --global --add safe.directory '*'
+        - run: git stash
+        - run: echo "${CRYPT_KEY}" | base64 -d > /home/atlantis/key.asc
+        - run: git-crypt unlock /home/atlantis/key.asc
+        - run: rm /home/atlantis/key.asc
+        - init:
+            extra_args: ["-backend-config", "dev-backend.hcl"]
+        - plan:
+            extra_args: ["-var-file", "environments/dev.tfvars"]
+    #apply:
+    #  steps:
+    #    - show
+  staging:
+    plan:
+      steps:
+        - run: rm -rf .terraform
+        - run: git config --global --add safe.directory '*'
+        - run: git stash
+        - run: echo "${CRYPT_KEY}" | base64 -d > /home/atlantis/key.asc
+        - run: git-crypt unlock /home/atlantis/key.asc
+        - run: rm /home/atlantis/key.asc
+        - init:
+            extra_args: ["-backend-config", "stg-backend.hcl"]
+        - plan:
+            extra_args: ["-var-file", "environments/stg.tfvars"]
+        - show
+  custom:
+    plan:
+      steps:
+        - env:
+            name: WORKSPACE
+            command: if [ "${BASE_BRANCH_NAME}" == "master" ]; then echo "prd"; elif [ "${BASE_BRANCH_NAME}" =~ "release" ]; then echo "stg"; elif [ "${BASE_BRANCH_NAME}" == "develop" ]; then echo "dev"; else exit 1; fi;
+        - run: terraform init -input=false
+        - run: terraform workspace select "${WORKSPACE}"
+        - run: terraform plan -var-file="environments/${WORKSPACE}.tfvars" -refresh -out "${PLANFILE}"
+    apply:
+      steps:
+        - run: terraform apply "${PLANFILE}"
